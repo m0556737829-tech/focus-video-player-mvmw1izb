@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#111827</color>
-    <color name="primary_dark">#080D18</color>
-    <color name="accent">#2DD4BF</color>
-    <color name="shield_active">#2DD4BF</color>
+    <color name="primary">#172554</color>
+    <color name="primary_dark">#080D1A</color>
+    <color name="accent">#5EEAD4</color>
+    <color name="shield_active">#5EEAD4</color>
     <color name="shield_glow">#CCFBF1</color>
     <color name="bg_dark">#0B1120</color>
-    <color name="bg_light">#F3F6FB</color>
-    <color name="surface_card">#FFFFFF</color>
-    <color name="text_primary">#172033</color>
-    <color name="text_secondary">#64748B</color>
+    <color name="bg_light">#0B1020</color>
+    <color name="surface_card">#151E32</color>
+    <color name="text_primary">#F0F4FC</color>
+    <color name="text_secondary">#9BAAC4</color>
     <color name="text_white">#FFFFFF</color>
-    <color name="control_bg">#D9080D18</color>
-    <color name="border_light">#DCE4EF</color>
-    <color name="btn_warning">#D97706</color>
+    <color name="control_bg">#F20B1020</color>
+    <color name="border_light">#2B3852</color>
+    <color name="btn_warning">#F59E0B</color>
 </resources>
