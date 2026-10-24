@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">נגן פוקוס וחסימה</string>
-    <string name="title_player">נגן וידאו מוגן ממוקד</string>
-    <string name="shield_mode_on">מצב הגנה פעיל: חוסם הסחות דעת</string>
-    <string name="shield_mode_off">מצב הגנה כבוי</string>
-    <string name="shield_status_desc">חוסם אפליקציות וידאו חיצוניות ומסייע בריכוז מירבי בלמידה</string>
-    <string name="btn_toggle_shield_on">הפעל חסימת הסחות דעת</string>
-    <string name="btn_toggle_shield_off">השהה חסימה</string>
+    <string name="title_player">נגן וידאו</string>
+    <string name="shield_status_desc">נגן וידאו פשוט, נקי ונוח לשימוש</string>
     <string name="btn_open_file">בחר סרטון מהמכשיר</string>
     <string name="btn_open_url">הפעל מקישור (URL)</string>
     <string name="btn_play">הפעל</string>
@@ -27,8 +23,6 @@
     <string name="dialog_note_hint">רשום תובנה, שאלה או סיכום קצר...</string>
     <string name="dialog_save">שמור</string>
     <string name="no_notes_yet">אין עדיין הערות שמורות עבור סרטון זה</string>
-    <string name="shield_toast_activated">מצב למידה מוגן הופעל! אפליקציות וידאו חיצוניות חסומות</string>
-    <string name="shield_toast_deactivated">חסימת הסחות הדעת בוטלה</string>
     <string name="video_error">שגיאה בטעינת קובץ הווידאו</string>
     <string name="loop_ab_off">חזרה A-B: כבוי</string>
     <string name="loop_a_set">חזרה: נקודה A סומנה</string>
