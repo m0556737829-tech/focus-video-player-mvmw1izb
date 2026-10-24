@@ -450,7 +450,7 @@ public class MainActivity extends Activity {
         mTabPlaylist.setBackgroundResource(R.drawable.bg_button_primary);
         mTabPlaylist.setTextColor(0xFFFFFFFF);
         mTabNotes.setBackgroundResource(R.drawable.bg_button_secondary);
-        mTabNotes.setTextColor(0xFF1A237E);
+        mTabNotes.setTextColor(0xFFB9C8E3);
     }
 
     private void showNotesTab() {
@@ -498,14 +498,14 @@ public class MainActivity extends Activity {
             TextView titleView = new TextView(this);
             titleView.setText(item.title);
             titleView.setTextSize(14);
-            titleView.setTextColor(0xFF212121);
+            titleView.setTextColor(0xFFF0F4FC);
             titleView.setTypeface(null, android.graphics.Typeface.BOLD);
             infoCol.addView(titleView);
 
             TextView durationView = new TextView(this);
             durationView.setText("משך משוער: " + item.durationHint);
             durationView.setTextSize(11);
-            durationView.setTextColor(0xFF757575);
+            durationView.setTextColor(0xFF9BAAC4);
             infoCol.addView(durationView);
 
             card.addView(infoCol);
@@ -563,7 +563,7 @@ public class MainActivity extends Activity {
 
             TextView timeView = new TextView(this);
             timeView.setText("דקה " + note.timeFormatted);
-            timeView.setTextColor(0xFF00B0FF);
+            timeView.setTextColor(0xFF5EEAD4);
             timeView.setTypeface(null, android.graphics.Typeface.BOLD);
             timeView.setTextSize(12);
             timeView.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
