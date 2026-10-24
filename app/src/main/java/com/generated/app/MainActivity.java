@@ -2,10 +2,8 @@ package com.generated.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
@@ -17,7 +15,6 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -35,8 +32,6 @@ import java.util.Locale;
 public class MainActivity extends Activity {
 
     private static final int REQUEST_PICK_VIDEO = 101;
-    private static final String PREFS_NAME = "focus_video_prefs";
-    private static final String PREF_SHIELD_ACTIVE = "pref_shield_active";
 
     private VideoView mVideoView;
     private ProgressBar mLoadingBar;
@@ -48,10 +43,7 @@ public class MainActivity extends Activity {
     private Button mBtnSpeed;
     private Button mBtnAbLoop;
     private Button mBtnFullscreen;
-    private Button mBtnToggleShield;
-    private TextView mTextShieldState;
-    private TextView mBadgeShield;
-    private LinearLayout mBannerShield;
+    private LinearLayout mInfoBanner;
 
     private LinearLayout mTopBar;
     private LinearLayout mPanelActions;
@@ -64,7 +56,6 @@ public class MainActivity extends Activity {
     private Button mTabNotes;
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
-    private boolean mIsShieldActive = true;
     private boolean mIsFullscreen = false;
     private float mCurrentSpeed = 1.0f;
     private final float[] SPEED_OPTIONS = {0.75f, 1.0f, 1.25f, 1.5f, 2.0f};
@@ -133,7 +124,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initViews();
-        loadPreferences();
         setupSampleVideos();
         renderPlaylist();
         renderNotes();
@@ -146,7 +136,6 @@ public class MainActivity extends Activity {
             playVideo(mPlaylist.get(0).uriString, mPlaylist.get(0).title);
         }
 
-        enforceShieldPolicy();
     }
 
     private void initViews() {
@@ -160,10 +149,7 @@ public class MainActivity extends Activity {
         mBtnSpeed = findViewById(R.id.btn_speed);
         mBtnAbLoop = findViewById(R.id.btn_ab_loop);
         mBtnFullscreen = findViewById(R.id.btn_fullscreen);
-        mBtnToggleShield = findViewById(R.id.btn_toggle_shield);
-        mTextShieldState = findViewById(R.id.text_shield_state);
-        mBadgeShield = findViewById(R.id.badge_shield);
-        mBannerShield = findViewById(R.id.banner_shield_status);
+        mInfoBanner = findViewById(R.id.info_banner);
 
         mTopBar = findViewById(R.id.top_bar);
         mPanelActions = findViewById(R.id.panel_video_actions);
@@ -220,13 +206,6 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 toggleFullscreen();
-            }
-        });
-
-        mBtnToggleShield.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleShield();
             }
         });
 
@@ -314,17 +293,6 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
-    }
-
-    private void loadPreferences() {
-        SharedPreferences sp = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        mIsShieldActive = sp.getBoolean(PREF_SHIELD_ACTIVE, true);
-        updateShieldUi();
-    }
-
-    private void savePreferences() {
-        SharedPreferences sp = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        sp.edit().putBoolean(PREF_SHIELD_ACTIVE, mIsShieldActive).apply();
     }
 
     private void setupSampleVideos() {
@@ -428,48 +396,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void toggleShield() {
-        mIsShieldActive = !mIsShieldActive;
-        savePreferences();
-        updateShieldUi();
-        enforceShieldPolicy();
-
-        if (mIsShieldActive) {
-            Toast.makeText(this, R.string.shield_toast_activated, Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, R.string.shield_toast_deactivated, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void updateShieldUi() {
-        if (mIsShieldActive) {
-            mBtnToggleShield.setText(getString(R.string.btn_toggle_shield_off));
-            mTextShieldState.setText(getString(R.string.shield_mode_on));
-            mTextShieldState.setTextColor(0xFF00C853);
-            mBadgeShield.setText("מוגן מפני הסחות");
-            mBannerShield.setBackgroundResource(R.drawable.bg_shield_active);
-        } else {
-            mBtnToggleShield.setText(getString(R.string.btn_toggle_shield_on));
-            mTextShieldState.setText(getString(R.string.shield_mode_off));
-            mTextShieldState.setTextColor(0xFFE65100);
-            mBadgeShield.setText("חסימה מושבתת");
-            mBannerShield.setBackgroundResource(R.drawable.bg_shield_inactive);
-        }
-    }
-
-    /**
-     * Enforces the anti-distraction shield policy:
-     * Keeps screen on, disables distractions, sets immersive study flags,
-     * prevents accidental navigation or distracting video app interruption.
-     */
-    private void enforceShieldPolicy() {
-        if (mIsShieldActive) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-    }
-
     private void toggleFullscreen() {
         mIsFullscreen = !mIsFullscreen;
         FrameLayout videoContainer = findViewById(R.id.video_container);
@@ -477,7 +403,7 @@ public class MainActivity extends Activity {
         if (mIsFullscreen) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             mTopBar.setVisibility(View.GONE);
-            mBannerShield.setVisibility(View.GONE);
+            mInfoBanner.setVisibility(View.GONE);
             mPanelActions.setVisibility(View.GONE);
             mPanelTabs.setVisibility(View.GONE);
             mScrollPlaylist.setVisibility(View.GONE);
@@ -500,7 +426,7 @@ public class MainActivity extends Activity {
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
             mTopBar.setVisibility(View.VISIBLE);
-            mBannerShield.setVisibility(View.VISIBLE);
+            mInfoBanner.setVisibility(View.VISIBLE);
             mPanelActions.setVisibility(View.VISIBLE);
             mPanelTabs.setVisibility(View.VISIBLE);
             showPlaylistTab();
@@ -769,7 +695,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        enforceShieldPolicy();
     }
 
     @Override
