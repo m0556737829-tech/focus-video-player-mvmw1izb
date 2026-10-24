@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    android:orientation="vertical">
+
+    <!-- Top App Bar / Shield Status Bar -->
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/app_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/text_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shield_status_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shield_status_desc"
+                android:textColor="#B0BEC5"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Shield Toggle Button -->
+        <Button
+            android:id="@+id/btn_toggle_shield"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_button_secondary"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:text="@string/btn_toggle_shield_off"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Video Player Container Frame -->
+    <FrameLayout
+        android:id="@+id/video_container"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="#000000">
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <ProgressBar
+            android:id="@+id/video_loading"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <!-- Overlay Control Bar -->
+        <LinearLayout
+            android:id="@+id/controls_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_control_bar"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Progress SeekBar and Time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_current_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_zero"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp" />
+
+                <SeekBar
+                    android:id="@+id/seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="1000" />
+
+                <TextView
+                    android:id="@+id/text_total_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_zero"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Buttons: Play/Pause, Rewind, Forward, Speed, AB Loop, Fullscreen -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_play_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/btn_play"
+                    android:textColor="@color/text_white"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_rewind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="-10s"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_forward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="+10s"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="1.0x"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_ab_loop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:text="חזרה"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_fullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/btn_fullscreen"
+                    android:textColor="@color/primary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Active Shield Banner -->
+    <LinearLayout
+        android:id="@+id/banner_shield_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_shield_active"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/text_shield_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shield_mode_on"
+            android:textColor="@color/shield_active"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/badge_shield"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge"
+            android:paddingBottom="2dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
+            android:text="הגנה פעילה"
+            android:textColor="@color/text_white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Source Actions: Pick Video or URL -->
+    <LinearLayout
+        android:id="@+id/panel_video_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_open_file"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/btn_open_file"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_open_url"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/btn_open_url"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Middle Tabs: Playlist / Notes -->
+    <LinearLayout
+        android:id="@+id/panel_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tab_button_playlist"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_primary"
+            android:text="@string/tab_playlist"
+            android:textColor="@color/text_white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tab_button_notes"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:text="@string/tab_notes"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Content for Playlist -->
+    <ScrollView
+        android:id="@+id/scroll_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/container_playlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <!-- Content for Notes -->
+    <LinearLayout
+        android:id="@+id/panel_notes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_add_note"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_button_primary"
+            android:text="@string/btn_add_note"
+            android:textColor="@color/text_white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/container_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

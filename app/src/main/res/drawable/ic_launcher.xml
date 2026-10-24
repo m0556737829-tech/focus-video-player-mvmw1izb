@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Rounded Background in Deep Navy/Indigo -->
+    <path
+        android:fillColor="#1A237E"
+        android:pathData="M18,6 L78,6 A12,12 0 0,1 90,18 L90,78 A12,12 0 0,1 78,90 L18,90 A12,12 0 0,1 6,78 L6,18 A12,12 0 0,1 18,6 Z" />
+    <!-- Outer Shield shape representing the blocker / focus protection -->
+    <path
+        android:fillColor="#304FFE"
+        android:pathData="M48,16 L74,26 C74,52 62,69 48,78 C34,69 22,52 22,26 Z" />
+    <!-- Inner Shield Accent -->
+    <path
+        android:fillColor="#00B0FF"
+        android:pathData="M48,22 L68,30 C68,50 58,63 48,71 C38,63 28,50 28,30 Z" />
+    <!-- Play symbol inside shield -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M43,36 L61,47 L43,58 Z" />
+</vector>

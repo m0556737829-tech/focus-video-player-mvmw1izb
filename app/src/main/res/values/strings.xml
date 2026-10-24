@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">נגן פוקוס וחסימה</string>
+    <string name="title_player">נגן וידאו מוגן ממוקד</string>
+    <string name="shield_mode_on">מצב הגנה פעיל: חוסם הסחות דעת</string>
+    <string name="shield_mode_off">מצב הגנה כבוי</string>
+    <string name="shield_status_desc">חוסם אפליקציות וידאו חיצוניות ומסייע בריכוז מירבי בלמידה</string>
+    <string name="btn_toggle_shield_on">הפעל חסימת הסחות דעת</string>
+    <string name="btn_toggle_shield_off">השהה חסימה</string>
+    <string name="btn_open_file">בחר סרטון מהמכשיר</string>
+    <string name="btn_open_url">הפעל מקישור (URL)</string>
+    <string name="btn_play">הפעל</string>
+    <string name="btn_pause">השהה</string>
+    <string name="btn_fullscreen">מסך מלא</string>
+    <string name="btn_speed">מהירות</string>
+    <string name="btn_add_note">הוסף הערה בנקודת זמן זו</string>
+    <string name="tab_playlist">רשימת סרטונים ללמידה</string>
+    <string name="tab_notes">הערות למידה בזמן הסרטון</string>
+    <string name="sample_video_title_1">הרצאת מבוא למדעי המחשב</string>
+    <string name="sample_video_title_2">שיעור מתמטיקה ומדעים</string>
+    <string name="sample_video_title_3">טכניקות זיכרון ופוקוס בלמידה</string>
+    <string name="dialog_url_title">הזנת קישור וידאו ישיר</string>
+    <string name="dialog_url_hint">https://example.com/lecture.mp4</string>
+    <string name="dialog_cancel">ביטול</string>
+    <string name="dialog_ok">טען והפעל</string>
+    <string name="dialog_note_title">הוספת הערת למידה לסרטון</string>
+    <string name="dialog_note_hint">רשום תובנה, שאלה או סיכום קצר...</string>
+    <string name="dialog_save">שמור</string>
+    <string name="no_notes_yet">אין עדיין הערות שמורות עבור סרטון זה</string>
+    <string name="shield_toast_activated">מצב למידה מוגן הופעל! אפליקציות וידאו חיצוניות חסומות</string>
+    <string name="shield_toast_deactivated">חסימת הסחות הדעת בוטלה</string>
+    <string name="video_error">שגיאה בטעינת קובץ הווידאו</string>
+    <string name="loop_ab_off">חזרה A-B: כבוי</string>
+    <string name="loop_a_set">חזרה: נקודה A סומנה</string>
+    <string name="loop_ab_active">חזרה בלולאה פעילה A-B</string>
+    <string name="time_zero">00:00</string>
+</resources>
