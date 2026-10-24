@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">נגן פוקוס וחסימה</string>
-    <string name="title_player">נגן וידאו</string>
-    <string name="shield_status_desc">נגן וידאו פשוט, נקי ונוח לשימוש</string>
-    <string name="btn_open_file">בחר סרטון מהמכשיר</string>
-    <string name="btn_open_url">הפעל מקישור (URL)</string>
+    <string name="app_name">וידאו פלוס</string>
+    <string name="title_player">המרחב שלך לצפייה</string>
+    <string name="shield_status_desc">נגן חכם • רשימות • הערות לפי זמן</string>
+    <string name="btn_open_file">＋  בחירת סרטון</string>
+    <string name="btn_open_url">פתיחת קישור ↗</string>
     <string name="btn_play">הפעל</string>
     <string name="btn_pause">השהה</string>
     <string name="btn_fullscreen">מסך מלא</string>
     <string name="btn_speed">מהירות</string>
     <string name="btn_add_note">הוסף הערה בנקודת זמן זו</string>
-    <string name="tab_playlist">רשימת סרטונים ללמידה</string>
-    <string name="tab_notes">הערות למידה בזמן הסרטון</string>
+    <string name="tab_playlist">הסרטונים שלי</string>
+    <string name="tab_notes">הערות וזמנים</string>
     <string name="sample_video_title_1">הרצאת מבוא למדעי המחשב</string>
     <string name="sample_video_title_2">שיעור מתמטיקה ומדעים</string>
     <string name="sample_video_title_3">טכניקות זיכרון ופוקוס בלמידה</string>
