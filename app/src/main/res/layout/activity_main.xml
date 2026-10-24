@@ -10,7 +10,7 @@
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@drawable/bg_header"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingStart="20dp"
@@ -41,10 +41,10 @@
     <FrameLayout
         android:id="@+id/video_container"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_video_card">
 
         <VideoView
@@ -197,9 +197,9 @@
         android:id="@+id/info_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_info_card"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -239,9 +239,9 @@
         android:id="@+id/panel_video_actions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:orientation="horizontal">
 
         <Button
@@ -273,9 +273,9 @@
         android:id="@+id/panel_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:orientation="horizontal">
 
         <Button
